@@ -9,8 +9,6 @@ tags:
   - clipping-notes
 ---
 
-# How Power Users Actually Set Up Claude Code — 中英對照筆記
-
 > Kieran Flanagan 2026-04-17 的 Substack 專欄,提出 Claude Code 配置的四大模組：**Context / Rules / Reach / Operation**。
 >
 > 本卡逐段中英對照整理,保留原文語氣與 code 範例,方便未來 cite 與跨語言對照使用。比對 SOT 卡的差異分析見 [[Kieran Flanagan 四大模組 × Source of Truth 比對分析]]。
