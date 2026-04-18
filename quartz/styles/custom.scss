@@ -2,9 +2,7 @@
 // Substack 風格客製化
 // ============================================
 
-// 匯入襯線字體（Newsreader：很像 Substack 的 Spectral）
-
-// 內文區域：窄欄、置中
+// ---- 內文區域：窄欄、置中 ----
 .page {
   & > #quartz-body {
     & .center {
@@ -15,7 +13,7 @@
   }
 }
 
-// 整體字體：襯線
+// ---- 整體字體：襯線、正常大小 ----
 body,
 article,
 .page article > p,
@@ -23,12 +21,12 @@ article,
 .page article > ol,
 .page article > blockquote {
   font-family: "Newsreader", "Noto Serif TC", Georgia, serif;
-  font-size: 1.15rem;
+  font-size: 1rem;
   line-height: 1.75;
   color: #1a1a1a;
 }
 
-// 標題：加粗、加大、無襯線
+// ---- 標題：無襯線、粗體 ----
 h1, h2, h3, h4, h5, h6 {
   font-family: "Inter", "Noto Sans TC", -apple-system, sans-serif;
   font-weight: 700;
@@ -38,34 +36,34 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
 }
 
-h1 { font-size: 2.25rem; }
-h2 { font-size: 1.75rem; margin-top: 3rem; }
-h3 { font-size: 1.35rem; }
+h1 { font-size: 1.85rem; }
+h2 { font-size: 1.45rem; margin-top: 3rem; }
+h3 { font-size: 1.2rem; }
 
-// 文章主標題（Quartz 自動產生的那個）
+// ---- 文章主標題（Quartz 自動產生的那個） ----
 .article-title {
-  font-size: 2.5rem !important;
+  font-size: 2rem !important;
   line-height: 1.2 !important;
   margin-bottom: 0.5rem !important;
 }
 
-// 日期、閱讀時間：小字、灰色
+// ---- 日期、閱讀時間：小字、灰色 ----
 .content-meta {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #888;
   margin-bottom: 3rem;
 }
 
-// 引用區塊：左邊細線、斜體
+// ---- 引用區塊：左邊細線、正體（不斜）----
 blockquote {
   border-left: 3px solid #ddd;
   padding-left: 1.5rem;
-  font-style: italic;
   color: #555;
   margin: 2rem 0;
+  font-style: normal;
 }
 
-// 連結：底線、深色
+// ---- 連結：底線、深色 ----
 a {
   color: #1a1a1a;
   text-decoration: underline;
@@ -77,7 +75,7 @@ a {
   }
 }
 
-// 行內程式碼：淺底色小方塊
+// ---- 行內程式碼：淺底色小方塊 ----
 code {
   font-family: "JetBrains Mono", "Menlo", monospace;
   font-size: 0.88em;
@@ -88,16 +86,18 @@ code {
   border: 1px solid #eaeaea;
 }
 
-// 程式碼區塊（多行）：深色背景
+// ---- 程式碼區塊（多行）：淺底色、可水平捲動 ----
 pre {
   font-family: "JetBrains Mono", "Menlo", monospace;
-  font-size: 0.88em;
+  font-size: 0.85em;
   background-color: #f8f6f2;
   padding: 1.25rem 1.5rem;
   border-radius: 6px;
   border: 1px solid #eaeaea;
   overflow-x: auto;
   line-height: 1.6;
+  white-space: pre;
+  word-wrap: normal;
 
   code {
     background: none;
@@ -105,15 +105,18 @@ pre {
     padding: 0;
     border: none;
     font-size: 1em;
+    white-space: pre;
+    display: block;
+    min-width: 0;
   }
 }
 
-// 段落間距
+// ---- 段落間距 ----
 p {
   margin: 1.25rem 0;
 }
 
-// Footer：淡化
+// ---- Footer：淡化 ----
 footer {
   margin-top: 4rem;
   padding-top: 2rem;
