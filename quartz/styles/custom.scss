@@ -86,22 +86,28 @@ code {
   border: 1px solid #eaeaea;
 }
 
-// ---- 程式碼區塊（多行）：淺底色、可水平捲動 ----
+// ---- 程式碼區塊：向兩側撐寬（Substack 招牌效果）----
 pre {
   font-family: "JetBrains Mono", "Menlo", monospace;
   font-size: 0.85em;
   background-color: #f8f6f2;
-  padding: 1.25rem 1.5rem;
-  border-radius: 6px;
-  border: 1px solid #eaeaea;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
   overflow-x: auto;
-  line-height: 1.6;
+  line-height: 1.7;
   white-space: pre;
   word-wrap: normal;
+  margin: 2rem -60px;
+
+  @media (max-width: 840px) {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+  }
 
   code {
     background: none;
-    color: inherit;
+    color: #333;
     padding: 0;
     border: none;
     font-size: 1em;
