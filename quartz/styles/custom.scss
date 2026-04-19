@@ -152,7 +152,7 @@ figure[data-rehype-pretty-code-figure] pre {
   }
 }
 
-// 手機版：用 absolute px + !important 強壓，不管 specificity 戰爭誰贏都要套上
+// 手機版：強制縮字 + 長行自動換行（犧牲程式碼對齊換可讀）
 @media (max-width: 768px) {
   figure[data-rehype-pretty-code-figure],
   figure[data-rehype-pretty-code-figure] pre,
@@ -160,6 +160,9 @@ figure[data-rehype-pretty-code-figure] pre {
   figure[data-rehype-pretty-code-figure] code {
     font-size: 11px !important;
     line-height: 1.55 !important;
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
   }
 }
 
