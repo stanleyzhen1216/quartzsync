@@ -53,6 +53,14 @@ export default (() => {
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        {/* JustFont webfont loader（信黑體 W5/W7） */}
+        <link
+          rel="preconnect"
+          href="https://s3-ap-northeast-1.amazonaws.com"
+          crossOrigin="anonymous"
+        />
+        <script src="https://s3-ap-northeast-1.amazonaws.com/justfont-user-script/jf-59588.js"></script>
+
         <meta name="og:site_name" content={cfg.pageTitle}></meta>
         <meta property="og:title" content={title} />
         <meta property="og:type" content="website" />
