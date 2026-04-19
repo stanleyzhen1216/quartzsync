@@ -1,27 +1,57 @@
 // ============================================
-// Substack 風格客製化
+// Substack 風格客製化 v3
 // ============================================
+
+// ---- 載入 Maple Mono NF CN（程式碼字體）----
+@font-face {
+  font-family: "Maple Mono NF CN";
+  src: url("https://cdn.jsdelivr.net/npm/@subframe7536/maple-mono-nf-cn@latest/MapleMono-NF-CN-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Maple Mono NF CN";
+  src: url("https://cdn.jsdelivr.net/npm/@subframe7536/maple-mono-nf-cn@latest/MapleMono-NF-CN-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// ---- 外層容器：限制最大寬度、置中、footer 黏底 ----
+#quartz-root {
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  min-height: 100vh;
+}
 
 // ---- 內文區域：窄欄、置中 ----
 .page {
   & > #quartz-body {
     & .center {
-      max-width: 780px;
+      max-width: 720px;
       margin: 0 auto;
       padding: 3rem 1.5rem;
     }
   }
 }
 
-// ---- 整體字體：襯線、正常大小 ----
+// ---- 整體字體：襯線（中英文各用各的）----
 body,
 article,
 .page article > p,
 .page article > ul,
 .page article > ol,
 .page article > blockquote {
-  font-family: "Newsreader", "Noto Serif TC", Georgia, serif;
-  font-size: 1rem;
+  font-family: "Source Serif Pro", "Noto Serif TC", "Songti TC", Georgia, serif;
+  font-size: 1.05rem;
   line-height: 1.75;
   color: #1a1a1a;
 }
@@ -40,7 +70,7 @@ h1 { font-size: 1.85rem; }
 h2 { font-size: 1.45rem; margin-top: 3rem; }
 h3 { font-size: 1.2rem; }
 
-// ---- 文章主標題（Quartz 自動產生的那個） ----
+// ---- 文章主標題 ----
 .article-title {
   font-size: 2rem !important;
   line-height: 1.2 !important;
@@ -54,7 +84,7 @@ h3 { font-size: 1.2rem; }
   margin-bottom: 3rem;
 }
 
-// ---- 引用區塊：左邊細線、正體（不斜）----
+// ---- 引用區塊：左邊細線、正體 ----
 blockquote {
   border-left: 3px solid #ddd;
   padding-left: 1.5rem;
@@ -75,9 +105,9 @@ a {
   }
 }
 
-// ---- 行內程式碼：淺底色小方塊 ----
+// ---- 行內程式碼：淺底色小方塊（Maple Mono）----
 code {
-  font-family: "JetBrains Mono", "Menlo", monospace;
+  font-family: "Maple Mono NF CN", "JetBrains Mono", "Menlo", monospace;
   font-size: 0.88em;
   background-color: #f4f1ec;
   color: #c7254e;
@@ -86,11 +116,13 @@ code {
   border: 1px solid #eaeaea;
 }
 
-// ---- 程式碼區塊：向兩側撐寬（Substack 招牌效果）----
-pre {
-  font-family: "JetBrains Mono", "Menlo", monospace;
+// ---- 程式碼區塊：淺底色、可水平捲動 ----
+pre,
+.expressive-code,
+figure.expressive-code pre {
+  font-family: "Maple Mono NF CN", "JetBrains Mono", "Menlo", monospace;
   font-size: 0.85em;
-  background-color: #f8f6f2;
+  background-color: #f8f6f2 ;
   padding: 1.5rem 2rem;
   border-radius: 8px;
   border: 1px solid #e5e5e5;
@@ -98,15 +130,14 @@ pre {
   line-height: 1.7;
   white-space: pre;
   word-wrap: normal;
-  margin: 2rem -60px;
+  margin: 2rem 0;
 
   @media (max-width: 840px) {
-    margin: 2rem 0;
     padding: 1.25rem 1.5rem;
   }
 
   code {
-    background: none;
+    background: none !important;
     color: #333;
     padding: 0;
     border: none;
@@ -117,14 +148,49 @@ pre {
   }
 }
 
+// ---- Shiki 語法高亮的容器：強制覆蓋背景 ----
+pre.shiki,
+pre[class*="language-"],
+.highlight pre {
+  background-color: #ffffff !important;
+
+  code {
+    background-color: transparent !important;
+  }
+}
+
 // ---- 段落間距 ----
 p {
   margin: 1.25rem 0;
 }
 
-// ---- Footer：淡化 ----
+// ---- 首字放大（Drop Cap）：只套第一段 ----
+.page article > p:first-of-type::first-letter {
+  font-family: "Source Serif Pro", "Noto Serif TC", Georgia, serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  margin: 0.15em 0.1em 0 0;
+  color: #1a1a1a;
+}
+
+// ---- 列表縮排 ----
+ul, ol {
+  padding-left: 1.75rem;
+
+  li {
+    margin: 0.5rem 0;
+
+    ul, ol {
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+// ---- Footer：淡化、黏底 ----
 footer {
-  margin-top: 4rem;
+  margin-top: auto;
   padding-top: 2rem;
   border-top: 1px solid #eee;
   font-size: 0.85rem;
