@@ -19,7 +19,7 @@ tags:
 
 ## § 0 NUMMI 故事 — 基礎設施比人選重要
 
-### \[EN] Original
+### 【EN】 Original
 
 In 1982, GM shut down its factory in Fremont, California. The workers there were, by their own union's admission, the **worst** in the American auto industry. Absenteeism ran at 20%. Cars rolled off the line with missing parts. Workers left empty bottles inside door panels to rattle and annoy future owners. GM closed it down.
 
@@ -31,7 +31,7 @@ The only thing that changed was what Toyota put around them before they started 
 
 That's the right approach to turn Claude Code into a powerhouse of a tool for your work. To do it you need a starter pack that includes _Context, Rules, Reach, Operations_.
 
-### \[中] 翻譯
+### 【中】 翻譯
 
 1982 年,GM 關掉了位於加州弗里蒙特的工廠。工會自己承認,那裡的工人是美國汽車業**最糟的**。缺勤率 20%。出廠的車缺零件。工人故意把空瓶子塞進門板,讓未來車主聽到喀啦喀啦的雜音。GM 關門了事。
 
@@ -47,7 +47,7 @@ That's the right approach to turn Claude Code into a powerhouse of a tool for yo
 
 ## § 1 Context — Claude 需要知道什麼
 
-### \[EN] Original
+### 【EN】 Original
 
 Foundation files are `.md` files that live in a `/foundation/` folder in your project. Claude reads them before any task runs.
 
@@ -65,7 +65,7 @@ One thing worth knowing about how this works: skills don't load all four files e
 
 One thing the foundation post doesn't cover: these files decay. Your positioning shifts, a competitor reframes their messaging, your audience picks up new vocabulary. A foundation file that's six months out of date is actively misleading Claude. Build a scheduled skill that audits them monthly.
 
-### \[中] 翻譯
+### 【中】 翻譯
 
 Foundation files 是放在專案 `/foundation/` 資料夾下的 `.md` 檔。Claude 在任何任務執行前都會先讀它們。
 
@@ -83,7 +83,7 @@ Foundation files 是放在專案 `/foundation/` 資料夾下的 `.md` 檔。Clau
 
 有一件事原文 foundation post 沒提:**這些檔案會腐敗**。你的定位會變、對手 reframe、受眾開始用新詞彙。一支六個月沒更新的 foundation 檔案,正在積極誤導 Claude。要建一支排程 skill,每月審計。
 
-### \[EN] Code Example — Audit Foundation Files Skill
+### 【EN】 Code Example — Audit Foundation Files Skill
 
 ```text
 # Skill: Audit Foundation Files
@@ -107,7 +107,7 @@ Foundation files 是放在專案 `/foundation/` 資料夾下的 `.md` 檔。Clau
 
 ## § 2 Rules — Claude 應該怎麼行動
 
-### \[EN] Original
+### 【EN】 Original
 
 Two files do this job.
 
@@ -117,7 +117,7 @@ Keep it under 60 lines. [HumanLayer's research](https://humanlayer.dev/blog/writ
 
 `settings.json` tells Claude what it cannot touch — your `.env` file, your secrets folder, any bash command that could cause damage. This is particularly important when you start to sync local file systems across team members so everyone has a single context layer for Claude Code.
 
-### \[中] 翻譯
+### 【中】 翻譯
 
 兩支檔案負責這件事。
 
@@ -127,7 +127,7 @@ Keep it under 60 lines. [HumanLayer's research](https://humanlayer.dev/blog/writ
 
 `settings.json` 告訴 Claude 什麼碰不得——你的 `.env`、secrets 資料夾、任何可能造成破壞的 bash 指令。當你開始跨團隊成員同步 local file system、讓大家共享同一層 context 時,這件事特別關鍵。
 
-### \[EN] Code Example — CLAUDE.md Template (marketing leader)
+### 【EN】 Code Example — CLAUDE.md Template (marketing leader)
 
 ```text
 # CLAUDE.md
@@ -175,7 +175,7 @@ and load only files relevant to the work at hand.
 - Summarise what you're about to do — just do it
 ```
 
-### \[EN] Code Example — settings.json deny list
+### 【EN】 Code Example — settings.json deny list
 
 ```json
 {
@@ -190,7 +190,8 @@ and load only files relevant to the work at hand.
 }
 ```
 
-### \[EN] Folder Structure
+### 【EN】 Folder Structure
+
 
 ```
 /foundation/          ← context layer
@@ -204,7 +205,8 @@ and load only files relevant to the work at hand.
   /skills/
 ```
 
-### \[中] 資料夾結構說明
+
+### 【中】 資料夾結構說明
 
 按工作流程組織,按工作實際在專案裡移動的路徑組織。`/foundation/` 是 context 層、每個 campaign 一個資料夾、內容依通路分、研究產出獨立放、`.claude/skills/` 放技能。
 
@@ -212,7 +214,7 @@ and load only files relevant to the work at hand.
 
 ## § 3 Reach — Claude 可以連到什麼
 
-### \[EN] Original
+### 【EN】 Original
 
 Without MCPs, Claude only knows what's in the conversation, what's in your terminal, what you've described, copied, or typed. MCPs give Claude access to live data across your stack, which changes the quality of everything it produces.
 
@@ -242,7 +244,7 @@ The questions that become answerable: What objections come up most in deals we l
 
 Key connectors: Notion or Google Drive MCP for call transcripts and research docs, Gong or Fireflies if your call recording tool has an MCP, web scraping via Playwright MCP for review sites.
 
-### \[中] 翻譯
+### 【中】 翻譯
 
 沒有 MCP,Claude 只知道對話裡的東西、terminal 裡的東西、你描述/複製/打出來的東西。MCP 讓 Claude 能接觸你整個 stack 的即時資料,這會**改變它產出的所有東西的品質**——建議是基於你 business 現在**實際發生的事**,而不是你的描述。
 
@@ -276,7 +278,7 @@ Power-user 的 Claude Code 配置,要連兩桶 MCP:
 
 ## § 4 Operation — 讓它成為利器的關鍵
 
-### \[EN] Original
+### 【EN】 Original
 
 Skills are your team. Each one is a SKILL.md file, a structured instruction set that tells Claude exactly what to do, which foundation files to read, and where to save the output. Where a prompt is a one-off request, a skill is a repeatable hire.
 
@@ -290,7 +292,7 @@ Over time, `/foundation/briefs/` becomes a real record of how you actually use C
 
 Run **Find Skills** every Friday. In a month you'll have a system that surfaces its own gaps.
 
-### \[中] 翻譯
+### 【中】 翻譯
 
 **Skills 是你的團隊**。每一支是一個 `SKILL.md`——結構化的指令集,告訴 Claude 要做什麼、讀哪些 foundation 檔案、把產出存到哪裡。如果說 prompt 是一次性請求,**skill 是可重複僱用的員工**。
 
@@ -304,7 +306,7 @@ Run **Find Skills** every Friday. In a month you'll have a system that surfaces 
 
 **Find Skills** 每週五跑。一個月後,你會有一個**自己揪自己缺口**的系統。
 
-### \[EN] Code Example — Weekly Pipeline Review Skill
+### 【EN】 Code Example — Weekly Pipeline Review Skill
 
 ```text
 # Skill: Weekly Pipeline Review
@@ -334,7 +336,7 @@ and where to focus this week.
    Post summary to #revenue-team in Slack
 ```
 
-### \[EN] Code Example — End of Session Brief Skill
+### 【EN】 Code Example — End of Session Brief Skill
 
 ```text
 # Skill: End of Session Brief
@@ -359,7 +361,7 @@ Run before closing Claude Code at the end of any working session.
 3. Save to /foundation/briefs/[YYYY-MM-DD-HH-MM].md
 ```
 
-### \[EN] Code Example — Find Skills Skill
+### 【EN】 Code Example — Find Skills Skill
 
 ```text
 # Skill: Find Skills
@@ -394,7 +396,7 @@ Run weekly to surface patterns worth turning into skills.
 
 ## § 5 結尾 — 基礎設施先於 prompt
 
-### \[EN] Original
+### 【EN】 Original
 
 Toyota didn't send those workers to Japan to motivate them. They sent them to give them everything they needed to do the job well before the job started — the context, the rules, the tools, the system.
 
@@ -402,7 +404,7 @@ When context, rules, reach, and operation are all in place, the ordinary becomes
 
 _Until Next Time, Happy AI'fying_ — Kieran
 
-### \[中] 翻譯
+### 【中】 翻譯
 
 Toyota 不是送那些工人去日本**激勵**他們。是送他們去拿到「把工作做好的所有條件」——在工作開始之前。Context、Rules、Tools、System。
 
