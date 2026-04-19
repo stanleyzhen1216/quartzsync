@@ -116,54 +116,40 @@ code {
   border: 1px solid #eaeaea;
 }
 
-// ---- 程式碼區塊：淺底色、可水平捲動 ----
-// ---- 程式碼區塊：跟內文等寬 + 縮字體 ----
-figure.expressive-code {
-  margin: 2rem 0;      // ← 關鍵：清掉瀏覽器預設 margin: 1em 40px
+// ---- 程式碼區塊：Quartz 用 rehype-pretty-code，不是 expressive-code ----
+
+// 外層 figure：清掉瀏覽器預設 margin: 1em 40px → 跟內文等寬
+figure[data-rehype-pretty-code-figure] {
+  margin: 2rem 0;
   max-width: 100%;
 }
 
-pre,
-.expressive-code,
-figure.expressive-code pre {
+// pre 區塊：字體縮小讓長行塞得下
+figure[data-rehype-pretty-code-figure] pre {
   font-family: "Maple Mono NF CN", "JetBrains Mono", "Menlo", monospace;
-  font-size: 0.72em;               // 從 0.85em 縮到 0.72em
+  font-size: 0.72em;                  // 從 0.85em 縮下來
   background-color: #f8f6f2;
-  padding: 1.5rem 1.75rem;
+  padding: 1.25rem 1.5rem;
   border-radius: 8px;
   border: 1px solid #e5e5e5;
   overflow-x: auto;
   line-height: 1.7;
-  white-space: pre;
-  word-wrap: normal;
-  margin: 2rem 0;
+  margin: 0;
 
   @media (max-width: 840px) {
-    padding: 1.25rem 1.25rem;
-    font-size: 0.68em;
-  }
-
-  code {
-    background: none !important;
-    color: #333;
-    padding: 0;
-    border: none;
-    font-size: 1em;
-    white-space: pre;
-    display: block;
-    min-width: 0;
+    padding: 1rem 1.25rem;
+    font-size: 0.7em;
   }
 }
 
-// ---- Shiki 語法高亮的容器：強制覆蓋背景 ----
-pre.shiki,
-pre[class*="language-"],
-.highlight pre {
-  background-color: #ffffff !important;
-
-  code {
-    background-color: transparent !important;
-  }
+// code：保留 rehype-pretty-code 的 display:grid（別覆蓋，那是行內結構用的）
+figure[data-rehype-pretty-code-figure] code {
+  background: transparent !important;
+  color: #333;
+  padding: 0;
+  border: none;
+  font-size: 1em;
+  min-width: 0;
 }
 
 // ---- 段落間距 ----
