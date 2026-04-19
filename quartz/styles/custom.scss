@@ -152,6 +152,17 @@ figure[data-rehype-pretty-code-figure] pre {
   }
 }
 
+// 手機版：用 absolute px + !important 強壓，不管 specificity 戰爭誰贏都要套上
+@media (max-width: 768px) {
+  figure[data-rehype-pretty-code-figure],
+  figure[data-rehype-pretty-code-figure] pre,
+  figure[data-rehype-pretty-code-figure] pre > code,
+  figure[data-rehype-pretty-code-figure] code {
+    font-size: 11px !important;
+    line-height: 1.55 !important;
+  }
+}
+
 // code：保留 rehype-pretty-code 的 display:grid（別覆蓋，那是行內結構用的）
 figure[data-rehype-pretty-code-figure] code {
   background: transparent !important;
