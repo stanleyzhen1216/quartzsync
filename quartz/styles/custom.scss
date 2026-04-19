@@ -117,13 +117,19 @@ code {
 }
 
 // ---- 程式碼區塊：淺底色、可水平捲動 ----
+// ---- 程式碼區塊：跟內文等寬 + 縮字體 ----
+figure.expressive-code {
+  margin: 2rem 0;      // ← 關鍵：清掉瀏覽器預設 margin: 1em 40px
+  max-width: 100%;
+}
+
 pre,
 .expressive-code,
 figure.expressive-code pre {
   font-family: "Maple Mono NF CN", "JetBrains Mono", "Menlo", monospace;
-  font-size: 0.72em;           // 從 0.85em 縮到 0.72em
+  font-size: 0.72em;               // 從 0.85em 縮到 0.72em
   background-color: #f8f6f2;
-  padding: 1.5rem 1.75rem;     // 水平 padding 略縮，留更多字元空間
+  padding: 1.5rem 1.75rem;
   border-radius: 8px;
   border: 1px solid #e5e5e5;
   overflow-x: auto;
@@ -134,7 +140,7 @@ figure.expressive-code pre {
 
   @media (max-width: 840px) {
     padding: 1.25rem 1.25rem;
-    font-size: 0.68em;         // 手機版再縮一點
+    font-size: 0.68em;
   }
 
   code {
