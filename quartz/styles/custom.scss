@@ -39,6 +39,10 @@ body {
       max-width: 720px;
       margin: 0 auto;
       padding: 3rem 1.5rem;
+
+      @media (max-width: 768px) {
+        padding: 2rem 1rem;
+      }
     }
   }
 }
@@ -122,6 +126,8 @@ code {
 figure[data-rehype-pretty-code-figure] {
   margin: 2rem 0;
   max-width: 100%;
+  width: 100%;
+  overflow-x: auto;
 }
 
 // pre 區塊：字體縮小讓長行塞得下
@@ -135,10 +141,14 @@ figure[data-rehype-pretty-code-figure] pre {
   overflow-x: auto;
   line-height: 1.7;
   margin: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 
-  @media (max-width: 840px) {
-    padding: 1rem 1.25rem;
-    font-size: 0.7em;
+  @media (max-width: 768px) {
+    padding: 0.75rem 1rem;
+    font-size: 0.6em;
+    border-radius: 4px;
   }
 }
 
