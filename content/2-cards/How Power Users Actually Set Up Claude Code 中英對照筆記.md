@@ -192,7 +192,7 @@ and load only files relevant to the work at hand.
 
 ### \[EN] Folder Structure
 
-```
+```text
 /foundation/          ← context layer
 /campaigns/           ← one folder per campaign
 /content/
